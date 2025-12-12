@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderful Indonesia | Home</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- INHERITED THEME STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f9f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1a5e20;
+        }
+
+        :root {
+            --primary-green: #1a5e20;
+            --accent-green: #4caf50;
+            --gold: #ff6f00;
+            --glass-bg: rgba(255, 255, 255, 0.90);
+            --light-mint: #e8f5e9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .btn-nav {
+            border: 1px solid var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* --- HOME SPECIFIC HERO --- */
+        .hero-home {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            /* Taller for home page */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-home h1 {
+            font-size: 5.5rem;
+            color: white;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+
+
+        /* --- FEATURES SECTION --- */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- DESTINATIONS GRID --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header span {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            grid-template-rows: 300px 300px;
+        }
+
+        .dest-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dest-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .dest-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .dest-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+        }
+
+        /* Grid Layout Specifics */
+        .dest-card.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .dest-card h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- PROMO BANNER --- */
+        .promo-banner {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 80px 20px;
+            margin: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .promo-text {
+            max-width: 500px;
+        }
+
+        .promo-text h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .promo-image img {
+            border-radius: 20px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: black;
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            width: 100%;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background: var(--gold);
+            border: none;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .dest-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+
+            .dest-card.large {
+                grid-column: span 2;
+                height: 300px;
+            }
+
+            .dest-card {
+                height: 250px;
+            }
+
+            .promo-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .glass-search {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+
+            .search-input {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                width: 100%;
+            }
+
+            .btn-search-icon {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-home h1 {
+                font-size: 3rem;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .dest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dest-card.large {
+                grid-column: span 1;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: orange;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background-color: orange;
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">VELORA</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="booking.html">Explore</a></li>
+            <li><a href="#">Packages</a></li>
+            <li><a href="#footer" class="btn-nav">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-home">
+        <div class="hero-content">
+            <h1>Discover the <br>Archipelago</h1>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="destinations">
+            <div class="section-header">
+                <span>Top Destinations</span>
+                <h2>Explore Popular Places</h2>
+            </div>
+
+            <div class="dest-grid">
+                <a href="GOA.html">
+                    <div class="dest-card large">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="Bali Rice Terrace">
+                        <div class="dest-overlay">
+                            <h3>Goa</h3>
+                            <p>The Island of Gods</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="MALDIVES.html">
+                    <div class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Raja Ampat">
+                        <div class="dest-overlay">
+                            <h3>Maldives</h3>
+                            <p>Diving Paradise</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="SWITZERLAND.html">
+                    <div class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Switzerland">
+                        <div class="dest-overlay">
+                            <h3>Switzerland</h3>
+                            <p>Heaven On Earth</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="VIETNAM.html">
+                    <div class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Yogyakarta">
+                        <div class="dest-overlay">
+                            <h3>Vietnam</h3>
+                            <p>Ancient Heritage</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="PARIS.html">
+                    <div class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop"
+                            alt="Lombok">
+                        <div class="dest-overlay">
+                            <h3>Paris</h3>
+                            <p>Beyond beautiful</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="promo-banner">
+        <div class="promo-image">
+            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRQ5FhqqFNFTfF8ALcFfIWdJ-anGMCStAWw7zydw_94rMPK5heu14mhtFflAQu9MDzoT4Ce4H7VFOyl_1Ti52ZDLkY&s=19"
+                alt="Traditional Balinese Dancer">
+        </div>
+        <div class="promo-text">
+            <h2>Experience the Culture</h2>
+            <p>Indonesia is more than just scenery. Immerse yourself in traditional dances, batik making, and ancient
+                spiritual ceremonies.</p>
+            <br>
+            <a href="INDONESIA.html" class="cta-btn">Explore </a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-item">
+            <span class="feature-icon">🌿</span>
+            <h3>Eco-Friendly</h3>
+            <p>Sustainable tourism that protects our beautiful nature and supports local communities.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">💎</span>
+            <h3>Curated Luxury</h3>
+            <p>Hand-picked villas, resorts, and private boat charters for an unforgettable stay.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🧭</span>
+            <h3>Local Experts</h3>
+            <p>Guided by locals who know the hidden gems, folklore, and best culinary spots.</p>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 15px;">WONDERFUL</div>
+                <p>Your trusted partner for exploring the Emerald of the Equator. We make every journey a story worth
+                    telling.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Travel Guides</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe for the latest deals and travel tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="button">Go</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>2025 VELORA Travel Agency. Made with ❤️ in India.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
